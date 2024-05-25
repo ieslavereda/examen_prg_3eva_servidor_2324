@@ -20,7 +20,7 @@ public class HouseRepository implements IHouseRepository {
         House house = null;
         String query = "select * from house where id=?";
         try(Connection connection=MyDataSource.getMySQLDataSorce().getConnection();
-            PreparedStatement ps = connection.prepareCall(query);
+            PreparedStatement ps = connection.prepareCall(query)
         ){
             ps.setInt(1,id);
             ResultSet rs = ps.executeQuery();
@@ -51,7 +51,7 @@ public class HouseRepository implements IHouseRepository {
         if (house!=null){
             String query = "delete from house where id=?";
             try(Connection connection=MyDataSource.getMySQLDataSorce().getConnection();
-                PreparedStatement ps = connection.prepareCall(query);
+                PreparedStatement ps = connection.prepareCall(query)
             ){
                 ps.setInt(1,id);
                 ps.executeUpdate();
@@ -66,7 +66,7 @@ public class HouseRepository implements IHouseRepository {
         if (house1!=null){
             String query = "update house set name = ?, points = ? where id=?";
             try(Connection connection=MyDataSource.getMySQLDataSorce().getConnection();
-                PreparedStatement ps = connection.prepareCall(query);
+                PreparedStatement ps = connection.prepareCall(query)
             ){
                 ps.setString(1, house.getName());
                 ps.setInt(2,house.getPoints());
