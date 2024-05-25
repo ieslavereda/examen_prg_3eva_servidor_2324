@@ -35,16 +35,9 @@ CREATE DEFINER=`root`@`localhost` FUNCTION `createHouse`(nameIn varchar(50), poi
     DETERMINISTIC
 BEGIN
 
-    declare houseExists int default 0;
     declare idOut int default -1;
-
-	select count(*) into houseExists from house where id = house_idIn;
-    if houseExists = 0 then
-		insert into house(name, points) values (nameIn,pointsIn);
-        set idOut = LAST_INSERT_ID();  
-    else
-		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'House does not exist', MYSQL_ERRNO = 1000;  
-    end if;
+	insert into house(name, points) values (nameIn,pointsIn);
+	set idOut = LAST_INSERT_ID();  
 
 RETURN idOut;
 END@@
