@@ -2,11 +2,8 @@ package es.ieslavereda.examen_prg_3eva_servidor_2324.repository;
 
 import es.ieslavereda.examen_prg_3eva_servidor_2324.repository.model.House;
 import es.ieslavereda.examen_prg_3eva_servidor_2324.repository.model.IHouseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
